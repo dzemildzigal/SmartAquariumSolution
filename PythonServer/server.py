@@ -13,19 +13,22 @@ class RequestHandler(BaseHTTPRequestHandler):
         ser.flushInput()
         time.sleep(0.1)
         line = str(ser.readline(),'utf-8')
-        ispis = line.replace('\r\n','\n');
-        if len(line) == 0:
-            print("Dostignut je timeout! Izađi! \n");
-            sys.exit();
-        print(ispis)
-        vrijednost = float(ispis.replace('\n',''));
+        line1 = str(ser.readline(),'utf-8')
+        ispis = line.replace('\r\n','\n')
+        ispis1 = line1.replace('\r\n','\n')
+        if len(line) == 0 or len(line1)==0:
+            print("Dostignut je timeout! Izađi! \n")
+            sys.exit()
+        print(ispis+''+ispis1)
+        vrijednost = float(ispis.replace('\n',''))
+        vrijednost1= float(ispis1.replace('\n',''))
         message = "";
         if vrijednost >30:
-            message = "Vrijednost temperature na senzoru: " +"<div style = 'background-color:red'>"+line+"  <div/>"
+            message = "Vrijednost temperature na senzoru: " +"<div style = 'background-color:red'>"+line+"  <div/>"+"Vrijednost dubine na senzoru: " +"<div>"+line1+" <div/>"
         elif vrijednost > 20 and vrijednost <=30:
-            message = "Vrijednost temperature na senzoru: " +"<div style = 'background-color:orange'>"+line+"  <div/>"
+            message = "Vrijednost temperature na senzoru: " +"<div style = 'background-color:orange'>"+line+"  <div/>"+"Vrijednost dubine na senzoru: " +"<div>"+line1+"  <div/>"
         else:
-            message = "Vrijednost temperature na senzoru: " +"<div style = 'background-color:blue'>"+line+"  <div/>"
+            message = "Vrijednost temperature na senzoru: " +"<div style = 'background-color:blue'>"+line+"  <div/>"+"Vrijednost dubine na senzoru: " +"<div>"+line1+"  <div/>"
         self.protocol_version = "HTTP/1.1"
         self.send_response(200)
         self.send_header("Content-Length",len(message))
