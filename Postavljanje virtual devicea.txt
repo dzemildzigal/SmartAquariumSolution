@@ -1,0 +1,38 @@
+1. Instaliraj Android Studio
+
+2. Kada sve bude nice and done, pokreni ga
+
+3. Ne zapocinji novi projekat! Imas na samom dnu prozora opciju "configure", klikni to
+
+4. Iz drop down menija odaberi AVD Manager
+
+5. Tu imas razne presets, ali mi cemo koristiti ovaj sto sam ga ja nastimala za svoju verziju androida
+
+6. Idi na "create virtual device" i onda "new hardware profile" (ubacicu sliku settings)
+
+7. Kada napravis hardware profile, odaberi njega i idi next
+
+8. Sljedece sto ce te pitati je da odaberes system image - uzmi Marshmallow
+
+9. to je to :D
+
+///
+
+1. sad zatvori taj prozor za postavljanje virtual devicea i opet idi na configuration
+
+2. odaberi SDK Manager ovaj put
+
+3. Tu moras odabrati da ti se instaliraju Android Emulator, Android SDK Tools i Android SDK Platform Tools (ako vec nisu)
+
+//POKRETANJE
+
+1. opet otvori AVD Manager
+
+2. sad kad odes tu, vidjeces kreirani virtual device i imas play button u actions
+
+3. klik na play
+
+4. u terminal ukucaj expo start
+
+5. thats it congrats
+
