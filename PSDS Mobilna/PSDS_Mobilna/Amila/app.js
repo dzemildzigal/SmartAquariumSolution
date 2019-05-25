@@ -7,7 +7,7 @@ class App extends React.Component{
 
     render(){
         return(
-            <Router>
+            <Router cardStyle={{backgroundColor:"white"}}>
             <Scene key = "root"  >
                <Scene key = "Login" component = {Login} title = "Login" initial = {true} hideNavBar={true} sceneStyle={{backgroundColor:"red"}}/>
             </Scene>

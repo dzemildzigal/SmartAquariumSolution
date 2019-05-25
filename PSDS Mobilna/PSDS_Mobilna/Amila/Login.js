@@ -13,7 +13,9 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         justifyContent: 'center',
         flexDirection: "column",
-        padding: 10
+        padding: 10,
+        marginTop:10,
+        backgroundColor:"white"
     }
 
 });
