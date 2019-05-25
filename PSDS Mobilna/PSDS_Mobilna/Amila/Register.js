@@ -3,6 +3,7 @@ import Logo from "./Logo";
 import { StyleSheet, Text, View, Image, TextInput, Button, KeyboardAvoidingView, ScrollView } from 'react-native';
 import InputTexts from "./InputTexts";
 import Separator from "./Separator";
+import {Actions} from "react-native-router-flux";
 
 const styles = StyleSheet.create({
     container: {
