@@ -43,7 +43,7 @@ class Login extends React.Component {
                     <TouchableOpacity style={{flex: 2 }} onPress={() => {Actions.Register()}}>
                         <Text style={{ textDecorationLine: 'underline', color: "#2d89ef"}}>Create Account</Text>
                     </TouchableOpacity>
-                    <Button title="Sign in" style={{flex: 2 }} onPress={()=>{Actions.Main()}}/>
+                    <Button title="Sign in" style={{flex: 2 }} onPress={()=>{Actions.MainPage()}}/>
                 </View>
             </KeyboardAvoidingView >
         );
