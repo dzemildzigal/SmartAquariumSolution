@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import { StyleSheet, Text, View, Image, TextInput, Button, KeyboardAvoidingView, ScrollView } from 'react-native';
 import InputTexts from "./InputTexts";
 import Separator from "./Separator";
-import {Actions} from "react-native-router-flux";
+import { Actions } from "react-native-router-flux";
 
 const styles = StyleSheet.create({
     container: {
@@ -20,13 +20,12 @@ class Register extends React.Component {
 
     render() {
         return (
-            <ScrollView>
-                <KeyboardAvoidingView
-                    style={styles.container}
-                    behavior="padding"
-                    keyboardVerticalOffset="30"
-                >
-
+            <KeyboardAvoidingView
+                style={styles.container}
+                behavior="padding"
+                keyboardVerticalOffset="30"
+            >
+                <ScrollView>
                     <Logo />
                     <Separator />
                     <InputTexts label="Name" placeholder="Your first name" />
@@ -42,8 +41,9 @@ class Register extends React.Component {
                     </View>
 
 
-                </KeyboardAvoidingView>
-            </ScrollView>
+                </ScrollView>
+
+            </KeyboardAvoidingView>
         );
     }
 }
