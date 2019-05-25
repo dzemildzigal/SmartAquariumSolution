@@ -7,9 +7,14 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "expo": "^32.0.0",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
+    "react": "^16.5.0",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-dom": "^16.8.6",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
+    "reactstrap": "^8.0.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"
