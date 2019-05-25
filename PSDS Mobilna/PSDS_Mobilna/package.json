@@ -14,6 +14,8 @@
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
+    "react-native-keyboard-aware-view": "0.0.14",
+    "react-native-router-flux": "^4.0.6",
     "reactstrap": "^8.0.0"
   },
   "devDependencies": {
