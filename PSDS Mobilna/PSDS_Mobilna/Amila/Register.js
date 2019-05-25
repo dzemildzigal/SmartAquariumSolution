@@ -19,12 +19,13 @@ class Register extends React.Component {
 
     render() {
         return (
-            <KeyboardAvoidingView
-                style={styles.container}
-                behavior="padding"
-                keyboardVerticalOffset="30"
-            >
-                <ScrollView>
+            <ScrollView>
+                <KeyboardAvoidingView
+                    style={styles.container}
+                    behavior="padding"
+                    keyboardVerticalOffset="30"
+                >
+
                     <Logo />
                     <Separator />
                     <InputTexts label="Name" placeholder="Your first name" />
@@ -35,12 +36,13 @@ class Register extends React.Component {
                     <Separator />
                     <InputTexts label="Password" placeholder="Choose a password" secure={true} />
                     <Separator />
-                    <View style={{ flex: 1, alignItems:"flex-end" }}>
+                    <View style={{ flex: 1, alignItems: "flex-end" }}>
                         <Button title="Register" style={{ flex: 2 }} />
                     </View>
 
-                </ScrollView>
-            </KeyboardAvoidingView>
+
+                </KeyboardAvoidingView>
+            </ScrollView>
         );
     }
 }

@@ -27,7 +27,8 @@ class Login extends React.Component {
         return (
             <KeyboardAvoidingView
                 style={styles.container}
-                behavior="position"
+                behavior="padding"
+                keyboardVerticalOffset="30"
             >
                 <Logo />
                 <Separator />
