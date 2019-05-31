@@ -36,8 +36,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes(message,'utf8'))
         return
-    
-    
+ 
 def run():
     server = ('0.0.0.0',8000)
     httpd = HTTPServer(server,RequestHandler)
