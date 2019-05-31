@@ -6,39 +6,40 @@ import AccountSettings from './AccountSettings';
 import { Actions } from "react-native-router-flux";
 
 const styles = StyleSheet.create({
-    
+
     account: {
         position: 'absolute'
     },
-    scroll: {
-        position: 'relative',
-        overflow: 'visible',
-        marginTop: 60
+    glavni: {
+        alignItems:"stretch",
+        flexDirection:"column"
+        
     }
-    });
+});
 
 
 class Logs extends React.Component {
 
     render() {
         return (
-            
-            <View>          
-                <AccountSettings style={styles.account}> </AccountSettings>     
-                <ScrollView style={styles.scroll} >
+
+            <View style={styles.glavni} >
+                <Separator/>
+                <View >
                     <Informations key={0} title="Water Level" text="this is water level"></Informations>
                     <Separator />
-                    <Informations key={1} title="Food Level" text="this is food level"></Informations>
+                    <Informations key={1} title="Food Intake" text="this is food level"></Informations>
                     <Separator />
-                    <Informations key={2} title="Temprature Level" text="this is temp level"></Informations>
+                    <Informations key={2} title="Temprature" text="this is temp level"></Informations>
                     <Separator />
-                    <Informations key={3} title="Php Level" text="this is php level"></Informations>
-                    <View style={{flexDirection:'row-reverse', padding:10}}>
-                    <Button title="Set values" style={{flex: 2 }} onPress={()=>{Actions.SetValues()}}/>
+                    <Informations key={3} title="Ph Level" text="this is php level"></Informations>
+                    <View style={{ flexDirection: 'row-reverse', padding: 10 }}>
+                        <Button title="Set values" style={{ flex: 2 }} onPress={() => { Actions.SetValues() }} />
                     </View>
-                </ScrollView>
+                </View>
+
             </View>
-               
+
         );
     }
 }

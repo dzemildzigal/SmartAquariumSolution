@@ -1,59 +1,50 @@
 import React, { Component } from "react";
-import { Button,Platform, StyleSheet, Text, View, Alert, YellowBox} from "react-native";
-import { Menu, MenuProvider, MenuOptions, MenuOption, MenuTrigger} from "react-native-popup-menu";
+import { Button, Platform, StyleSheet, Text, View, Alert, YellowBox } from "react-native";
+import Separator from "./Separator";
+import { Actions } from "react-native-router-flux";
 
+const styles = StyleSheet.create({
+
+  container: {
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    flexDirection: "column",
+    padding: 10,
+    marginTop: 10
+  },
+  labele: {
+    fontSize: 17,
+    color: "#6F6F6F"
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: "space-between"
+  }
+});
 export default class HomeActivity extends Component {
-
-  constructor(props) {
-     super(props);
-     YellowBox.ignoreWarnings([
-      'Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'
-    ]);
-   }
-
+  constructor() {
+    super();
+    this.state = {
+      ime: "lmao",
+      prezime: "poyy",
+      email: "neko@nesto"
+    }
+  }
   render() {
+    /*ime, prez, email, delete, log out*/
     return (
-      <MenuProvider style={{ flexDirection: "column", padding: 30 }}>
-        <Menu onSelect={value => alert(`You Clicked : ${value}`)}>
-
-          <MenuTrigger  >
-         <Text style={styles.headerText}>DropDown Menu</Text>
-          </MenuTrigger  >
-
-          <MenuOptions>
-            <MenuOption value={"Login"}>
-              <Text style={styles.menuContent}>Login</Text>
-            </MenuOption>
-            <MenuOption value={"Register"}>
-              <Text style={styles.menuContent}>Register</Text>
-            </MenuOption>
-            <MenuOption value={"Download"}>
-              <Text style={styles.menuContent}>Download</Text>
-            </MenuOption>
-            <MenuOption value={"Logout"}>
-              <Text style={styles.menuContent}>Logout</Text>
-            </MenuOption>
-            <MenuOption value={3} disabled={true}>
-              <Text style={styles.menuContent}>Disabled Menu</Text>
-            </MenuOption>
-          </MenuOptions>
-
-        </Menu>
-      </MenuProvider>
+      <View style={styles.container}>
+        <Text style={styles.labele}>Name: {this.state.ime}</Text>
+        <Separator />
+        <Text style={styles.labele}>Last Name: {this.state.prezime}</Text>
+        <Separator />
+        <Text style={styles.labele}>Email: {this.state.email}</Text>
+        <Separator/>
+        <View style={styles.buttons}>
+          <Button title="Log out" onPress={() => {Actions.Login()}}/>
+          <Button title="Delete Account" />
+        </View>
+      </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-    headerText: {
-    fontSize: 20,
-    margin: 10,
-    fontWeight: "bold"
-  },
-  menuContent: {
-    color: "#000",
-    fontWeight: "bold",
-    padding: 2,
-    fontSize: 20
-  }
-});
