@@ -30,7 +30,7 @@ class Logs extends React.Component {
       }
 
     componentDidMount() {
-        axios.get('http://192.168.0.14:8080/values')
+        axios.get('http://stavisvojuIPadresu:8080/values') 
         .then(response => {
           this.setState({data: response.data});
         })

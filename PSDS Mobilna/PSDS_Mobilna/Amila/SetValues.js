@@ -61,7 +61,7 @@ class SetValues extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        axios.post('http://192.168.0.14:8080/set-values', {
+        axios.post('http://stavisvojuIPadresu:8080/set-values', {
             Temperatura: this.state.temp, //ispraviti po pythonu da bude T='...'
             Nivo: this.state.waterLevel, //ispraviti po pythonu da bude N='...'
             food: this.state.foodIntake
