@@ -3,6 +3,8 @@ import { Button, View, Text, StyleSheet, Dimensions, ScrollView, KeyboardAvoidin
 import Separator from './Separator';
 import NumericInput from 'react-native-numeric-input'
 import Logo from './Logo';
+import axios from 'axios';
+import { Actions } from "react-native-router-flux";
 
 
 const styles = StyleSheet.create({
@@ -53,8 +55,28 @@ class SetValues extends React.Component {
     }
     handleSliderChange() {
 
+       
+
     }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        axios.post('http://192.168.0.14:8080/set-values', {
+            Temperatura: this.state.temp, //ispraviti po pythonu da bude T='...'
+            Nivo: this.state.waterLevel, //ispraviti po pythonu da bude N='...'
+            food: this.state.foodIntake
+          })
+          .then(function (response) {
+           // console.log(response);
+          })
+          .catch(function (error) {
+           // console.log(error);
+          });
+          Actions.MainPage()
+    }
+
     render() {
+        console.log(this.state);
         return (
             <ScrollView >
                     <View style={styles.container}>
@@ -90,7 +112,7 @@ class SetValues extends React.Component {
                         </View>
                         <Separator/>
                         <View style={styles.button}>
-                            <Button title="Set values" onPress={() => console.log('hi')}></Button>
+                            <Button title="Set values" onPress={this.handleSubmit}></Button>
                         </View>
                     </View>
             </ScrollView>

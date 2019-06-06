@@ -1,0 +1,1 @@
+{"Temperatura":25,"food":2,"Nivo":50}

@@ -4,6 +4,7 @@ import Informations from './Informations';
 import Separator from './Separator';
 import AccountSettings from './AccountSettings';
 import { Actions } from "react-native-router-flux";
+import axios from 'axios';
 
 const styles = StyleSheet.create({
 
@@ -18,25 +19,48 @@ const styles = StyleSheet.create({
 });
 
 
+
 class Logs extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+          data: '',
+        }
+      }
+
+    componentDidMount() {
+        axios.get('http://192.168.0.14:8080/values')
+        .then(response => {
+          this.setState({data: response.data});
+        })
+        .catch(error => {
+          console.log("greska naka lol");
+        });
+      }
+
     render() {
+        console.log(this.state.data);
+        const waterText = "Current water level in the tank is " + this.state.data.Nivo;
+        const foodText = "The fish have been fed " + this.state.data.food +" times";
+        const tempText = "Current temperature in the tank is " + this.state.data.Temperatura + " °C";
+
         return (
 
             <View style={styles.glavni} >
                 <Separator/>
                 <View >
-                    <Informations key={0} title="Water Level" text="this is water level"></Informations>
+                    <Informations key={0} title="Water Level" text= {waterText}> </Informations>
                     <Separator />
-                    <Informations key={1} title="Food Intake" text="this is food level"></Informations>
+                    <Informations key={1} title="Food Intake" text={foodText}></Informations>
                     <Separator />
-                    <Informations key={2} title="Temprature" text="this is temp level"></Informations>
+                    <Informations key={2} title="Temprature" text={tempText}></Informations>
                     <Separator />
-                    <Informations key={3} title="Ph Level" text="this is php level"></Informations>
+                    <Informations key={3} title="Ph Level" text="Comming soon!!!"></Informations>
                     <View style={{ flexDirection: 'row-reverse', padding: 10 }}>
                         <Button title="Set values" style={{ flex: 2 }} onPress={() => { Actions.SetValues() }} />
                     </View>
-                </View>
+                    </View>
 
             </View>
 

@@ -11,9 +11,9 @@ class App extends React.Component{
         return(
             <Router cardStyle={{backgroundColor:"white"}}>
             <Scene key = "root"  >
-               <Scene key = "Login" component = {Login} title = "Login" hideNavBar={true} />
+               <Scene key = "Login" component = {Login} title = "Login" hideNavBar={true} initial={true} />
                <Scene key="Register" component={Register} title = "Register" hideNavBar={true} ></Scene>
-               <Scene key="MainPage" component={Main} title="Main page" hideNavBar={true} initial={true}  ></Scene>
+               <Scene key="MainPage" component={Main} title="Main page" hideNavBar={true}  ></Scene>
                <Scene key="SetValues" component={SetValues} title="SetValues" hideNavBar={true}  ></Scene>
 
             </Scene>
