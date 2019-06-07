@@ -48,7 +48,7 @@ class SetValues extends React.Component {
         super();
         this.state = {
             waterLevel: 50,
-            foodIntake: 2,
+            foodIntake: 0,
             temp: 25,
             phValue: null
         }
@@ -61,18 +61,23 @@ class SetValues extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        axios.post('http://stavisvojuIPadresu:8080/set-values', {
-            Temperatura: this.state.temp, //ispraviti po pythonu da bude T='...'
-            Nivo: this.state.waterLevel, //ispraviti po pythonu da bude N='...'
-            food: this.state.foodIntake
-          })
+        axios.post('http://192.168.16.8:8000', { //dodati sa servera
+            T: this.state.temp, //ispraviti po pythonu da bude T='...'
+            N: this.state.waterLevel, //ispraviti po pythonu da bude N='...'
+            F: this.state.foodIntake
+          },
+          {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
           .then(function (response) {
            // console.log(response);
           })
           .catch(function (error) {
            // console.log(error);
           });
-          Actions.MainPage()
+          Actions.MainPage();
     }
 
     render() {
@@ -86,16 +91,16 @@ class SetValues extends React.Component {
                             <View>
                                 <Text style={styles.labele}>Water Level</Text>
                                 <Text style={styles.labelSmall}>Water level is measured in percentages according to the aquarium height.</Text>
-                                <Slider maximumValue={80} minimumValue={50} step={5} value={this.state.waterLevel} style={styles.singleSlider}
+                                <Slider maximumValue={75} minimumValue={50} step={5} value={this.state.waterLevel} style={styles.singleSlider}
                                     onValueChange={(value) => this.setState({ waterLevel: value })} />
-                                <Separator />
+                                <Separator/>
                                 <Text style={styles.labele}>Percentage: {this.state.waterLevel}% </Text>
                             </View>
                             <Separator />
                             <View>
                                 <Text style={styles.labele}>Food</Text>
                                 <Text style={styles.labelSmall}>This section determines how many times the fish will be fed in one day. The aquarium will dose up the quantity of food accoringly.</Text>
-                                <Slider maximumValue={3} minimumValue={1} step={1} value={this.state.foodIntake} style={styles.singleSlider}
+                                <Slider maximumValue={1} minimumValue={0} step={1} value={this.state.foodIntake} style={styles.singleSlider}
                                     onValueChange={(value) => this.setState({ foodIntake: value })} />
                                     <Separator/>
                                 <Text style={styles.labele}>Feeding times: {this.state.foodIntake}</Text>

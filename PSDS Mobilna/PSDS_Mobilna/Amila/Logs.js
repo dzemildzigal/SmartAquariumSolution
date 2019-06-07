@@ -30,7 +30,7 @@ class Logs extends React.Component {
       }
 
     componentDidMount() {
-        axios.get('http://stavisvojuIPadresu:8080/values') 
+        axios.get('http://192.168.16.8:8000') //dodati sa servera
         .then(response => {
           this.setState({data: response.data});
         })
@@ -41,9 +41,11 @@ class Logs extends React.Component {
 
     render() {
         console.log(this.state.data);
-        const waterText = "Current water level in the tank is " + this.state.data.Nivo;
-        const foodText = "The fish have been fed " + this.state.data.food +" times";
-        const tempText = "Current temperature in the tank is " + this.state.data.Temperatura + " °C";
+        var foodText;
+        let waterText = "Current water level in the tank is " + this.state.data.Nivo;
+        if(this.state.data.F)  foodText = "The fish have been fed ";
+        else foodText = "The fish haven't been fed ";
+        let tempText = "Current temperature in the tank is " + this.state.data.Temperatura + " °C";
 
         return (
 
