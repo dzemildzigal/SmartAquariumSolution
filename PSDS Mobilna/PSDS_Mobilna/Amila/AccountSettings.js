@@ -25,9 +25,9 @@ export default class HomeActivity extends Component {
   constructor() {
     super();
     this.state = {
-      ime: "lmao",
-      prezime: "poyy",
-      email: "neko@nesto"
+      ime: "Jemo",
+      prezime: "Hendrix",
+      email: "jemoaqua@psds.com"
     }
   }
   render() {

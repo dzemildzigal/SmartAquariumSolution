@@ -28,7 +28,7 @@ class Main extends React.Component {
                     style={{marginTop:20}}
                 >
                     <Logs tabLabel='Logs' name='logs'></Logs>
-                    <Text tabLabel='Messages'>Ovdje idu sve push notifikacije</Text>
+                    <Text tabLabel='Messages'>Comming soon!!!</Text>
                     <AccountSettings tabLabel="Account"></AccountSettings>
                 </ScrollableTabView>
             

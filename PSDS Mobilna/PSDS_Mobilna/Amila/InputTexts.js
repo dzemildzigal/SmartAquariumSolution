@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
 });
 class InputTexts extends React.Component {
 
+    
     render() {
         return (
             <View style={styles.viewsLijevo}>
@@ -21,6 +22,7 @@ class InputTexts extends React.Component {
                     style={{ height: 40 }}
                     placeholder={this.props.placeholder}
                     secureTextEntry={this.props.secure}
+                    onChangeText = {this.props.onChange}
                 />
             </View>
         );
